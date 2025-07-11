@@ -3,584 +3,982 @@
   --krizo-yellow: #f9fd00;
   --krizo-orange: #f25101;
   --krizo-gray: #cacaca;
-
-  /* Additional colors, consider if these are redundant with the krizo- ones */
-  --primary-orange: #f35304;
-  --background-dark: #1b0a04;
-  --accent-bright-yellow: #f7d808;
-  --accent-mid-orange: #f49408;
-  --text-white: #ffffff;
-  --text-gray-dark: #333333;
-  --button-hover-orange: #ff6f00;
-  --deep-orange: #FF7300; /* Found in footer, vision, mision, faq, etc. */
+  --krizo-white: #ffffff;
+  --krizo-black: #000000;
+  
+  /* Gradientes y efectos */
+  --gradient-primary: linear-gradient(135deg, var(--krizo-orange) 0%, #ff6f00 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--krizo-yellow) 0%, #ffd700 100%);
+  --gradient-dark: linear-gradient(135deg, var(--krizo-dark) 0%, #1a1a1a 100%);
+  
+  /* Sombras */
+  --shadow-light: 0 4px 12px rgba(242, 81, 1, 0.15);
+  --shadow-medium: 0 8px 24px rgba(242, 81, 1, 0.2);
+  --shadow-heavy: 0 12px 40px rgba(242, 81, 1, 0.25);
+  --shadow-yellow: 0 4px 16px rgba(249, 253, 0, 0.3);
+  
+  /* Transiciones */
+  --transition-fast: all 0.2s ease;
+  --transition-medium: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+  
+  /* Bordes */
+  --border-radius-small: 8px;
+  --border-radius-medium: 16px;
+  --border-radius-large: 24px;
+  --border-radius-xl: 32px;
 }
 
 /* ===========================
     ESTILOS GENERALES
     =========================== */
-    body {
-        background: #1b0a04; /* Color de fondo oscuro: casi negro */
-        min-height: 100vh;
-        color: #000000; /* Negro Texto - Color de texto principal por defecto */
-        font-family: 'Segoe UI', 'Arial', sans-serif; /* Se mantiene la fuente existente */
-    }
-    
-    /* ===========================
-        LOGO
-        =========================== */
-    /* Se aplica al span dentro de navbar-brand para el texto del logo "KRIZO" */
-    .navbar-brand span {
-        color: #000000; /* Negro Profundo - Color del texto "KRIZO" */
-        font-size: 1.7rem;
-        letter-spacing: 2px;
-    }
-    
-    /* ===========================
-        NAVBAR
-        =========================== */
-    .navbar {
-        background: #f35304; /* Naranaja - Fondo del NAV */
-        /*box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Sombra sutil para separar el nav */
-    }
-    
-    /* Estilos para los enlaces de texto del NAV (Inicio, Misión, etc.) */
-    .nav-link-custom {
-        color: #FFFFFF !important; /* Blanco - Color por defecto de los enlaces */
-        font-weight: 500;
-        text-decoration: none; /* Quita el subrayado por defecto de los enlaces */
-        transition: all 0.3s ease; /* Transición suave para los efectos hover */
-    }
-    .nav-link-custom:hover, .nav-link-custom.active {
-        color: #000000 !important; /* Negro Profundo - Color del texto al pasar el ratón o activo */
-        text-decoration: underline; /* Agrega el subrayado al pasar el ratón */
-        text-decoration-color: #000000; /* Naranja Vibrante - Color del subrayado */
-        text-underline-offset: 4px; /* Espacio entre el texto y el subrayado */
-        /* La propiedad transition ya está definida arriba, no es necesario repetirla aquí */
-    }
-    
-    /* Estilos para los botones del NAV (Descargar App, Visitar Web) */
-    .btn-nav {
-        background-color: #f49408; /* Naranja Vibrante - Fondo del botón */
-        color: #FFFFFF;           /* Blanco Puro - Color del texto del botón */
-        font-family: 'Segoe UI', 'Arial', sans-serif; /* Se mantiene la fuente existente */
-        font-size: 1rem;
-        font-weight: 600;
-        text-decoration: none; /* Quita el subrayado si el botón es un enlace */
-        padding: 10px 20px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        display: inline-block;
-        text-align: center;
-        transition: background-color 0.3s ease, transform 0.1s ease; /* Transición suave para hover */
-    }
-    .btn-nav:hover {
-        background-color: #333333; /* Gris oscuro al pasar el ratón */
-        transform: translateY(-1px); /* Pequeño levantamiento */
-    }
-    /* No se especificó el estado :active, pero se mantiene el que ya tenías si lo deseas */
-    /* .btn-nav:active {
-        transform: translateY(0);
-        background-color: #CC6F00;
-    } */
-    
-    
-    /* ===========================
-        HERO SECTION
-        =========================== */
-    .hero-section {
-    background: url('../images/Banner.png') center center/100% auto no-repeat;
-    min-height: 600px;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    }
-    @media (max-width: 767px) {
-    .hero-section {
-        background-size: contain;
-        min-height: 350px;
-    }
-    }
-    .hero-section > .container {
-        position: relative;
-        z-index: 2;
-    }
-    .hero-title {
-        color: #ffffff; /* Blanco Texto - Color del título principal */
-        letter-spacing: -1px;
-    }
-    .hero-highlight {
-        color: #FFFFFF; /* Blanco porque no encontre otro color para resaltar "¡Llega Seguro!" */
-    }
-    .hero-lead {
-        color: #FFFFFF; /* Blanco - Color para el párrafo principal */
-        text-shadow: none; /* Se elimina la sombra de texto para mayor claridad en modo claro */
-        font-weight:normal;
-    }
-    .hero-img-main {
-        max-width: 500px;
-        opacity: 0.95;
-        border-radius: 24px;
-        /*box-shadow: 0 8px 32px rgba(255, 140, 0, 0.10); /* Sombra con el Naranja Vibrante */
-    }
-    
-    /* Estilo para el botón "Conoce Más" en la sección Hero (btn-main-cta) */
-    /* Este botón es el que antes era 'btn btn-warning' */
-    .btn-main-cta {
-        background-color: #f7d808; /* Amarillo Brillante - Fondo del botón */
-        color: black; /* Negro Puro - Texto del botón */
-        font-weight: bolder;
-        border: none;
-        text-decoration: none;
-        border-radius: 8px; /* Consistencia con btn-nav */
-        padding: 12px 28px; /* Ajuste de padding */
-        font-size: 1.25rem; /* Tamaño de fuente de Bootstrap btn-lg */
-        box-shadow: 0 4px 12px rgba(255, 140, 0, 0.2); /* Sombra sutil con naranja */
-        transition: background-color 0.3s ease, transform 0.1s ease;
-    }
-    .btn-main-cta:hover {
-        background-color: #ff6f00; /* Naranja ligeramente más oscuro al hover */
-        transform: translateY(-1px);
-    }
-    /* .btn-main-cta:active {
-        transform: translateY(0);
-        background-color: #CC6F00;
-    } */
-    
-    
-    /* ===========================
-        CTA SECTION
-        =========================== */
-    .cta-section {
-        background: #f35304; /* Naranja Vibrante - Fondo de la sección CTA */
-        color: #fff; /* Blanco Puro - Color de texto general en esta sección */
-        box-shadow: 0 4px 24px rgba(255, 115, 0, 0.13); /* Sombra con el Naranja Profundo */
-        padding: 48px 32px;
-        margin: 48px 0; /* Se mantiene el margin original */
-        text-align: center;
-    }
-    .cta-title {
-        color: #fff; /* Blanco Puro - Título de la sección CTA */
-        font-size: 2.2rem;
-    }
-    .cta-text {
-        color: #FFFFFF; /* Blanco Puro - Texto de la sección CTA */
-    }
-    /* Estilos para los botones "Descargar App Ahora" y "Visita Nuestra Web" en la sección CTA (btn-cta-section) */
-    /* Estos botones eran 'btn btn-light' */
-    .btn-cta-section {
-        background: #FFFFFF; /* Blanco Puro - Fondo del botón */
-        color: #FF7300; /* Naranja Profundo del Logo - Texto del botón */
-        font-weight: 700;
-        border: none;
-        margin-top: 24px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-        border-radius: 8px; /* Consistencia con otros botones */
-        padding: 12px 28px; /* Ajuste de padding */
-        font-size: 1.25rem; /* Tamaño de fuente de Bootstrap btn-lg */
-        transition: background 0.2s, color 0.2s, transform 0.1s ease;
-    }
-    .btn-cta-section:hover {
-        background: #FFD700; /* Amarillo Dorado - Fondo al pasar el ratón */
-        color: #FF7300; /* Naranja Profundo del Logo - Texto al pasar el ratón */
-        transform: translateY(-1px);
-    }
-    /* .btn-cta-section:active {
-        transform: translateY(0);
-        background-color: #E6C400;
-    } */
-    
-    
-    /* ===========================
-        TITULOS Y SUBRAYADOS DE SECCIÓN
-        =========================== */
-    .section-title {
-        color: #FFFFFF; /* Negro Texto - Color de los títulos de sección (H2) */
-        font-weight: 700;
-        font-size: 2.2rem;
-        margin-bottom: 0.5rem;
-        letter-spacing: 1px;
-    }
-    .section-underline {
-        width: 60px;
-        height: 4px;
-        background: #ffffff;
-        border-radius: 2px;
-        margin-bottom: 16px;
-    }
-    
-    /* ===========================
-        VISION SECTION
-        =========================== */
-    .vision-section {
-        background: #FF7300; /* Naranja Profundo del Logo - Fondo de la sección Visión */
-        padding: 5px 32px;
-        margin: 48px 0; 
-        border-radius: 24px;
-    }
-    .vision-section .section-title {
-        color: #FFFFFF; /* Blanco Puro - Título de la sección Visión (ya estaba en HTML) */
-    }
-    .vision-underline {
-        background: #FFFFFF; /* Blanco Puro - Subrayado de la sección Visión */
-    }
-    
-    /* ===========================
-        MISION SECTION
-        =========================== */
-    .misi-section {
-        background: #FF7300; /* Blanco Puro - Fondo de la sección Misión */
-        border-radius: 24px;
-    }
-    .misi-text {
-        color: #FFFFFF; /* Gris Oscuro - Color del texto de la sección Misión */
-    }
-
-    #misionCarrusel .carousel-inner img {
-    height: 100%px;
-    max-width: 1000px;
-    width: 100%;
-    object-fit: contain;
-    border-radius: 24px;
-    margin-left: auto;
-    margin-right: auto;
-    background: #fff;
-    display: block;
-    }
-    @media (max-width: 1200px) {
-        #misionCarrusel .carousel-inner img {
-            height: 350px;
-            max-width: 100vw;
-        }
-    }
-    @media (max-width: 767px) {
-        #misionCarrusel .carousel-inner img {
-            height: 180px;
-            max-width: 100vw;
-        }
-    }
-    
-    /* ===========================
-        SERVICIOS
-        =========================== */
-    .service-card {
-        border: none;
-        border-radius: 18px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.05); /* Sombra más sutil */
-        transition: transform 0.2s, box-shadow 0.2s;
-        background: #ffffff; /* Blanco Puro - Fondo de las tarjetas de servicio */
-    }
-    .service-card:hover {
-        transform: translateY(-8px) scale(1.03);
-        box-shadow: 0 8px 32px rgba(255, 140, 0, 0.10); /* Sombra al hover con Naranja Vibrante */
-    }
-    .service-card img {
-        border-radius: 18px 18px 0 0;
-        object-fit: cover;
-        height: 220px;
-    }
-    .service-card .card-title {
-        color: #f7d808; /* Amarillo Vibrante - Título de la tarjeta de servicio */
-        font-weight: 700;
-        font-size: 1.3rem;
-    }
-    .service-card .card-text {
-        color: #FFFFFF; /* Gris Oscuro - Texto de la tarjeta de servicio */
-        font-size: 1.05rem;
-    }
-    
-    /* ===========================
-        QUIÉNES SOMOS
-        =========================== */
-    .about-section {
-        background: #ffffff; /* Gris Muy Claro - Fondo de la sección Quiénes Somos */
-        box-shadow: 0 2px 16px rgba(255, 140, 0, 0.05); /* Sombra con Naranja Vibrante */
-        margin: 48px 0; /* Se mantiene el margin original */
-    }
-    .about-text {
-        color: #FFFFFF ; /* Gris Oscuro - Texto de la sección Quiénes Somos */
-    }
-    
-    .about-img-container img {
-        border: 4px solid #0d6efd;
-        background: #fff;
-    }
-
-    .about-card {
-        transition: transform 0.2s;
-        background: #23272b;
-        border-radius: 18px;
-        color: #fff;
-        box-shadow: 0 4px 24px rgba(255, 140, 0, 0.08);
-    }
-    .about-card:hover {
-        transform: translateY(-6px) scale(1.03);
-    }
-
-    .text-main {
-        color: #0d6efd;
-    }
-
-    .bg-main {
-        background: linear-gradient(90deg, #0d6efd 60%, #f7d808 100%);
-    }
-
-    /* ===========================
-        VALORES
-        =========================== */
-    .valores-section {
-        background: #FF7300; /* Gris - Fondo de la sección Valores */
-        border-radius: 24px;
-        margin: 48px 0; /* Se mantiene el margin original */
-    }
-    .valores-intro {
-        color: #ffffff; /* Blanco Puro - Texto introductorio de Valores */
-        font-size: 1.15rem;
-        margin-bottom: 2rem;
-    }
-    .valor-card {
-        background: #333333; /* Blanco Puro - Fondo de las tarjetas de valor */
-        border-radius: 18px;
-        padding: 2rem 1.5rem;
-        transition: box-shadow 0.2s, transform 0.2s;
-        /*border: 1px solid #FFD700; /* Amarillo Dorado - Borde de la tarjeta de valor */
-    }
-    .valor-card:hover {
-        box-shadow: 0 8px 32px rgba(255, 140, 0, 0.10); /* Sombra al hover con Naranja Vibrante */
-        transform: translateY(-6px) scale(1.03);
-    }
-    .valor-title {
-        color: #f7d808; /* Naranja Vibrante - Título de la tarjeta de valor */
-        font-weight: 700;
-        font-size: 1.3rem;
-        margin-bottom: 0.7rem;
-        letter-spacing: 1px;
-    }
-    .valor-text {
-        color: #FFFFFF; /* Gris Oscuro - Texto de la tarjeta de valor */
-        font-size: 1.07rem;
-    }
-
-    /* ===========================
-        imagen de preguntas frecuentes
-        =========================== */
-    .faq-img-container {
-        width: 100%;
-        margin-bottom: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .faq-img {
-        max-width: 100%;
-        max-height: 500px;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        display: block;
-    }
-        
-    /* ===========================
-        FAQ (PREGUNTAS FRECUENTES)
-        =========================== */
-    .faq-section {
-        background: #333333; /* Gris - Fondo de la sección FAQ */
-        border-radius: 24px;
-        margin: 48px 0; /* Se mantiene el margin original */
-    }
-    .faq-intro {
-        color: #FFFFFF; /* Blanco - Texto introductorio de FAQ */
-        font-size: 1.15rem;
-        margin-bottom: 2rem;
-    }
-    .faq-img-placeholder {
-        min-height: 140px;
-        font-size: 1.1rem;
-        /* Se mantiene bg-light de Bootstrap que es similar a #F8F8F8 */
-    }
-    .accordion-button {
-        background: #FF8C00; /* Blanco Puro - Fondo del botón del acordeón */
-        color: #000000; /* Naranja Vibrante - Color del texto del botón del acordeón */
-        font-weight: 600;
-        font-size: 1.08rem;
-        border: none;
-        box-shadow: none;
-        transition: background 0.2s, color 0.2s;
-    }
-    .accordion-button:not(.collapsed) {
-        background: #FF8C00; /* Naranja Vibrante - Fondo del botón del acordeón cuando está abierto */
-        color: #FFFFFF; /* Blanco Puro - Texto del botón del acordeón cuando está abierto */
-    }
-    .accordion-item {
-        border: none;
-        margin-bottom: 10px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(255, 140, 0, 0.05); /* Sombra con Naranja Vibrante */
-    }
-    .accordion-body {
-        background: #FFFFFF; /* Blanco Puro - Fondo del cuerpo del acordeón */
-        color: #333333; /* Gris Oscuro - Texto del cuerpo del acordeón */
-        font-size: 1.05rem;
-        border-top: 1px solid #FFD700; /* Amarillo Dorado - Borde superior del cuerpo del acordeón */
-    }
-
-    /* ===========================
-        redes sociales
-    =========================== */
-
-    .krizo-redes-img {
-    max-width: 900px;
-    width: 100%;
-    height: auto;
-    display: block;
-    }
-
-    .social-icon {
-        width: 48px;
-        height: 48px;
-        object-fit: contain;
-        transition: transform 0.2s;
-    }
-
-    .social-icon:hover {
-        transform: scale(1.15);
-    }
-    
-    /* ===========================
-        FOOTER
-        =========================== */
-    .footer {
-        background: #FF7300; /* Naranja Profundo del Logo - Fondo del Footer */
-        color: #FFFFFF; /* Blanco Puro - Color de texto general del Footer */
-        padding: 24px 0 8px 0;
-        text-align: center;
-        margin-top: 48px;
-        /*border-radius: 24px 24px 0 0;*/
-        font-size: 1.05rem;
-    }
-    .footer-contact {
-        color: #FFFFFF; /* Blanco Puro - Color del texto de contacto en el Footer */
-        font-size: 0.98rem;
-    }
-    
-/* ===========================
-   MEDIA QUERIES
-   =========================== */
-@media (max-width: 991px) {
-    .hero-img-main {
-        max-width: 220px;
-        margin-top: 32px;
-    }
-    .faq-img-placeholder {
-        height: 120px !important;
-    }
-}
-@media (max-width: 767px) {
-    .hero-section {
-        padding: 32px 0 16px 0;
-    }
-    .about-section, .cta-section, .misi-section, .vision-section {
-        padding: 32px 12px;
-    }
-    .service-card img {
-        height: 150px;
-    }
-    .section-title {
-        font-size: 1.5rem;
-    }
+* {
+  box-sizing: border-box;
 }
 
-/* ===========================
-    TARJETAS DEL EQUIPO
-========================*/
-    /* Tarjetas del equipo en Quiénes Somos */
-    .team-card {
-      background: #333333;
-      border-radius: 18px;
-      color: #fff;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 24px rgba(255, 140, 0, 0.08);
-    }
-    .team-card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 8px 32px rgba(255, 140, 0, 0.13);
-    }
-    .team-img-container {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: #fff;
-      padding: 6px;
-      box-shadow: 0 2px 8px rgba(13, 110, 253, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .team-img {
-      width: 98px;
-      height: 98px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #f7d808;
-    }
-    .team-name {
-      color: #f7d808;
-      font-size: 1.25rem;
-      margin-bottom: 0.2rem;
-    }
-    .team-role {
-      display: block;
-      color: #0d6efd;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
-    }
-    .team-desc {
-      color: #fff;
-      font-size: 1.02rem;
-      margin-bottom: 0;
-    }
-
-    body {
+body {
   background: var(--krizo-dark);
+  min-height: 100vh;
   color: var(--krizo-gray);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-.section-title {
-  color: var(--krizo-yellow);
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.navbar {
+::-webkit-scrollbar-track {
+  background: var(--krizo-dark);
+}
+
+::-webkit-scrollbar-thumb {
   background: var(--krizo-orange);
+  border-radius: 4px;
 }
 
-.team-card, .about-section, .valor-card, .service-card, .faq-section {
-  background: var(--krizo-dark);
-  color: var(--krizo-gray);
+::-webkit-scrollbar-thumb:hover {
+  background: var(--krizo-yellow);
 }
 
-.team-name, .valor-title, .card-title.text-warning {
-  color: var(--krizo-yellow) !important;
+/* ===========================
+    NAVBAR
+    =========================== */
+.navbar {
+  background: var(--gradient-primary);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-medium);
+  padding: 1rem 0;
+  transition: var(--transition-medium);
 }
 
-.team-img {
-  border: 3px solid var(--krizo-yellow);
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  text-decoration: none;
+  transition: var(--transition-fast);
 }
 
-.text-main, .team-role {
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand span {
+  color: var(--krizo-black);
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+  transition: var(--transition-fast);
+}
+
+.navbar-brand:hover img {
+  transform: rotate(5deg);
+}
+
+.nav-link-custom {
+  color: var(--krizo-white) !important;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--border-radius-small);
+  transition: var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: var(--transition-medium);
+}
+
+.nav-link-custom:hover::before {
+  left: 0;
+}
+
+.nav-link-custom:hover, .nav-link-custom.active {
+  color: var(--krizo-black) !important;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-nav {
+  background: var(--gradient-secondary);
+  color: var(--krizo-black);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius-medium);
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  transition: var(--transition-medium);
+  box-shadow: var(--shadow-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-nav:hover {
+  background: var(--krizo-yellow);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+  color: var(--krizo-black);
+}
+
+/* ===========================
+    HERO SECTION
+    =========================== */
+.hero-section {
+  background: url('../images/Banner.png') center center/contain no-repeat;
+  min-height: 100vh;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-section > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  color: var(--krizo-white);
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.hero-highlight {
+  color: var(--krizo-yellow);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-lead {
+  color: var(--krizo-white);
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+
+.btn-main-cta {
+  background: var(--gradient-secondary);
+  color: var(--krizo-black);
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-yellow);
+  transition: var(--transition-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-main-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: var(--transition-slow);
+}
+
+.btn-main-cta:hover::before {
+  left: 100%;
+}
+
+.btn-main-cta:hover {
+  background: var(--krizo-yellow);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-heavy);
+}
+
+/* ===========================
+    CTA SECTION
+    =========================== */
+.cta-section {
+  background: var(--gradient-primary);
+  color: var(--krizo-white);
+  padding: 4rem 2rem;
+  margin: 3rem 0;
+  text-align: center;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-heavy);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.cta-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  color: var(--krizo-white);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta-text {
+  color: var(--krizo-white);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.btn-cta-section {
+  background: var(--krizo-white);
   color: var(--krizo-orange);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition-medium);
+  margin: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.bg-main {
-  background: linear-gradient(90deg, var(--krizo-orange) 60%, var(--krizo-yellow) 100%);
+.btn-cta-section:hover {
+  background: var(--krizo-yellow);
+  color: var(--krizo-black);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* ===========================
+    TÍTULOS Y SUBRAYADOS
+    =========================== */
+.section-title {
+  color: var(--krizo-white);
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-underline {
+  width: 80px;
+  height: 5px;
+  background: var(--gradient-secondary);
+  border-radius: 3px;
+  margin: 0 auto 2rem auto;
+  box-shadow: var(--shadow-yellow);
+}
+
+/* ===========================
+    SECCIONES DE CONTENIDO
+    =========================== */
+.mision-section, .vision-section, .valores-section, .about-section, .faq-section {
+  padding: 5rem 0;
+  margin: 3rem auto;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+  max-width: 95%;
+  text-align: center;
+}
+
+/* Sección Misión - Naranja */
+.mision-section {
+  background: var(--gradient-primary);
+  color: var(--krizo-white);
+}
+
+/* Sección Visión - Naranja */
+.vision-section {
+  background: var(--gradient-primary);
+  color: var(--krizo-white);
+}
+
+/* Sección Valores - Naranja */
+.valores-section {
+  background: var(--gradient-primary);
+  color: var(--krizo-white);
+}
+
+/* Sección Quiénes Somos - Oscuro */
+.about-section {
+  background: var(--gradient-dark);
+  color: var(--krizo-white);
+}
+
+/* Sección FAQ - Naranja */
+.faq-section {
+  background: var(--gradient-primary);
+  color: var(--krizo-white);
+}
+
+.misi-text, .vision-section p, .about-text {
+  color: var(--krizo-white);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+/* ===========================
+    SECCIÓN SERVICIOS
+    =========================== */
+#servicios {
+  background: var(--gradient-dark);
+  padding: 5rem 0;
+  margin: 3rem auto;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+  color: var(--krizo-white);
+  max-width: 95%;
+  text-align: center;
+}
+
+#servicios .section-title {
+  color: var(--krizo-white);
+}
+
+#servicios .text-secondary {
+  color: var(--krizo-gray) !important;
+}
+
+/* ===========================
+    TARJETAS DE SERVICIOS
+    =========================== */
+.service-card {
+  background: var(--krizo-dark);
+  border: 2px solid var(--krizo-yellow);
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  transition: var(--transition-medium);
+  box-shadow: var(--shadow-light);
+  position: relative;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: var(--transition-medium);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-heavy);
+  border-color: var(--krizo-orange);
+}
+
+.service-card img {
+  height: 200px;
+  object-fit: cover;
+  transition: var(--transition-medium);
+}
+
+.service-card:hover img {
+  transform: scale(1.05);
+}
+
+.service-card .card-title {
+  color: var(--krizo-yellow);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.service-card .card-text {
+  color: var(--krizo-white);
+  line-height: 1.6;
+}
+
+/* ===========================
+    TARJETAS DE VALORES
+    =========================== */
+.valor-card {
+  background: var(--krizo-dark);
+  border: 2px solid var(--krizo-yellow);
+  border-radius: var(--border-radius-medium);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition-medium);
+  box-shadow: var(--shadow-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.valor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-secondary);
+  opacity: 0;
+  transition: var(--transition-medium);
+  z-index: 1;
+}
+
+.valor-card:hover::before {
+  opacity: 0.1;
+}
+
+.valor-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.valor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-heavy);
+  border-color: var(--krizo-white);
+}
+
+.valor-title {
+  color: var(--krizo-yellow);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.valor-text {
+  color: var(--krizo-white);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.valores-intro {
+  color: var(--krizo-white);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===========================
+    TARJETAS ABOUT
+    =========================== */
+.about-card {
+  background: var(--krizo-dark);
+  border: 2px solid var(--krizo-orange);
+  border-radius: var(--border-radius-medium);
+  padding: 2rem;
+  transition: var(--transition-medium);
+  box-shadow: var(--shadow-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition-medium);
+  z-index: 1;
+}
+
+.about-card:hover::before {
+  opacity: 0.1;
+}
+
+.about-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-heavy);
+  border-color: var(--krizo-yellow);
+}
+
+.about-card i {
+  color: var(--krizo-yellow);
+  margin-bottom: 1rem;
+}
+
+.about-card .card-title {
+  color: var(--krizo-yellow);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.about-card .card-text {
+  color: var(--krizo-gray);
+  line-height: 1.6;
+}
+
+/* ===========================
+    FAQ SECTION
+    =========================== */
+.accordion-button {
+  background: var(--krizo-dark);
+  color: var(--krizo-white);
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2px solid var(--krizo-yellow);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition-medium);
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--krizo-dark);
+  color: var(--krizo-yellow);
+  border-color: var(--krizo-orange);
+  box-shadow: var(--shadow-medium);
+}
+
+.accordion-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--krizo-orange);
+}
+
+.accordion-item {
+  border: none;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.accordion-body {
+  background: var(--krizo-dark);
+  color: var(--krizo-white);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  border-top: 2px solid var(--krizo-yellow);
+}
+
+.faq-intro {
+  color: var(--krizo-white);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===========================
+    SECCIÓN NUESTRO EQUIPO
+    =========================== */
+.team-section {
+  background: var(--gradient-primary);
+  padding: 5rem 0;
+  margin: 3rem auto;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-heavy);
+  max-width: 95%;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(249, 253, 0, 0.1) 0%, rgba(242, 81, 1, 0.9) 100%);
+  pointer-events: none;
+}
+
+.team-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.team-section .section-title {
+  color: var(--krizo-yellow);
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.team-section .section-underline {
+  background: var(--krizo-yellow);
+  box-shadow: var(--shadow-yellow);
+  width: 80px;
+  height: 5px;
+  border-radius: 3px;
+  margin: 0 auto 2rem auto;
+}
+
+.team-section .about-text {
+  color: var(--krizo-gray);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+  font-weight: 500;
+}
+
+.team-section .team-card {
+  background: var(--krizo-dark);
+  border: 3px solid var(--krizo-yellow);
+  box-shadow: var(--shadow-medium);
+  border-radius: var(--border-radius-medium);
+  transition: var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-section .team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(249, 253, 0, 0.1), transparent);
+  transition: var(--transition-slow);
+}
+
+.team-section .team-card:hover::before {
+  left: 100%;
+}
+
+.team-section .team-card:hover {
+  background: var(--krizo-dark);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: var(--shadow-heavy);
+  border-color: var(--krizo-orange);
+}
+
+.team-section .team-img-container {
+  background: var(--gradient-secondary);
+  padding: 8px;
+  box-shadow: var(--shadow-yellow);
+}
+
+.team-section .team-img {
+  border: 4px solid var(--krizo-dark);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.team-section .team-name {
+  color: var(--krizo-yellow);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.team-section .team-role {
+  color: var(--krizo-orange);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+
+.team-section .team-desc {
+  color: var(--krizo-gray);
+  line-height: 1.6;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+/* ===========================
+    REDES SOCIALES
+    =========================== */
+.redes-section {
+  background: var(--gradient-primary);
+  padding: 4rem 0;
+  margin: 3rem auto;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-medium);
+  text-align: center;
+  max-width: 95%;
+}
+
+.krizo-redes-img {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 2rem auto;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-medium);
+}
+
+.social-icon {
+  width: 60px;
+  height: 60px;
+  color: var(--krizo-orange);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: var(--transition-medium);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--krizo-dark);
+  border: 2px solid var(--krizo-orange);
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  color: var(--krizo-yellow);
+  border-color: var(--krizo-yellow);
+  box-shadow: var(--shadow-yellow);
+}
+
+/* ===========================
+    FOOTER
+    =========================== */
+.footer {
+  background: var(--gradient-primary);
+  color: var(--krizo-white);
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 3rem;
+  box-shadow: var(--shadow-heavy);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.2;
+}
+
+.footer > div {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-contact {
+  color: var(--krizo-yellow);
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* ===========================
+    MEDIA QUERIES
+    =========================== */
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .team-section .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 100vh;
+    background-size: contain;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-lead {
+    font-size: 1.1rem;
+  }
+  
+  .btn-main-cta {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+  
+  .cta-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .mision-section, .vision-section, .valores-section, .about-section, .faq-section {
+    padding: 3rem 1rem;
+    margin: 2rem auto;
+    max-width: 98%;
+  }
+  
+  #servicios {
+    padding: 3rem 1rem;
+    margin: 2rem auto;
+    max-width: 98%;
+  }
+  
+  .redes-section {
+    padding: 3rem 1rem;
+    margin: 2rem auto;
+    max-width: 98%;
+  }
+  
+  .team-section {
+    margin: 2rem auto;
+    padding: 3rem 1rem;
+    max-width: 98%;
+  }
+  
+  .team-section .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .team-section .about-text {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .service-card img {
+    height: 150px;
+  }
+  
+  .social-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+  }
+  
+  .navbar-brand span {
+    font-size: 1.5rem;
+  }
+  
+  .btn-nav {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .cta-title {
+    font-size: 1.6rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .btn-cta-section {
+    display: block;
+    margin: 0.5rem auto;
+    max-width: 250px;
+  }
 }
